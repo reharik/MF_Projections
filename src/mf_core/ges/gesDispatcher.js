@@ -25,35 +25,12 @@ module.exports = function(invariant,
                 this.options.handlers,
                 "Dispatcher requires at least one handler"
             );
-            this.connection = gesConnection;
-        }
-
-        getConn(){
-            return this.connection;
-        }
-
-        //TODO this will go in the app setup
-        setMetadata() {
-            var setData = {
-                expectedMetastreamVersion: -1
-                , metadata: gesclient.createStreamMetadata({
-                    acl: {
-                        readRoles: gesclient.systemRoles.all
-                    }
-                })
-                , auth: {
-                    username: gesclient.systemUsers.admin
-                    , password: gesclient.systemUsers.defaultAdminPassword
-                }
-            };
-
-            this.connection.setStreamMetadata('$all', setData)
         }
 
         startDispatching() {
             logger.info('startDispatching called');
             //this.setMetadata();
-                var subscription = this.connection.subscribeToAllFrom();
+            var subscription = gesConnection.subscribeToAllFrom();
             //var subscription = this.connection.subscribeToStreamFrom(this.options.stream);
 
             //Dispatcher gets raw events from ges in the EventData Form
@@ -63,7 +40,7 @@ module.exports = function(invariant,
                 .filter(this.filterEvents, this)
                 .map(this.createGesEvent, this);
             relevantEvents.forEach(vent => this.serveEventToHandlers(vent,this.options.handlers),
-                error => { throw error; }
+                    error => { throw error; }
             );
 
         }
@@ -112,7 +89,8 @@ module.exports = function(invariant,
 
             handlers
                 .filter(h=> {
-                    logger.info('calling event handler :' + h.eventHandlerName);
+                    logger.info('calling event handler :' + h.eventHandlerName + ' with eventTypeName: ' + vent.eventTypeName);
+                    logger.trace(h.eventHandlerName = ' handles these events: '+ h.handlesEvents);
                     return h.handlesEvents.find(he=>he == vent.eventTypeName)
                 })
                 .forEach(m=> {
