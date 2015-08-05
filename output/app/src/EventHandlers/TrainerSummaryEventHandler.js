@@ -14,10 +14,10 @@ module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
         async trainerHired(event) {
             var trainer = {
                 id: event.id,
-                firstName: event.firstName,
-                lastName: event.lastName,
-                emailAddress: event.emailAddress,
-                phoneMobile: event.phoneMobile
+                firstName: event.contact.firstName,
+                lastName: event.contact.lastName,
+                emailAddress: event.contact.emailAddress,
+                phoneMobile: event.contact.phoneMobile
             };
             await readModelRepository.save('trainerSummary', trainer)
         };

@@ -1,4 +1,5 @@
 {
+  "env":"dev",
   "eventstore":{
     "host":"eventstore",
     "systemUsers": {"admin":"admin"},

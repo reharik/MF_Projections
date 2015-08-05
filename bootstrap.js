@@ -6,6 +6,7 @@ module.exports = new _container(x=>
     x.pathToRoot(__dirname)
         .requireDirectoryRecursively('./src')
         .groupAllInDirectory('./src/EventHandlers', 'eventHandlers')
+        .for('logger').instantiate(x=>x.asFunc()).require('src/yowlWrapper')
         .for('gesConnection').instantiate(x=>x.initializeWithMethod('openConnection'))
         .for('gesRepository').instantiate(x=>x.asFunc())
         .for('readModelRepository').require("/src/mf_core/postgres/postgresRepository")

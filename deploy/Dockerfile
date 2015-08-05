@@ -9,7 +9,8 @@ WORKDIR /opt/app/current
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ADD /app/package.json /opt/app/current/package.json
-RUN  npm install && npm install -g babel
+ADD /app/.npmrc /opt/app/current/.npmrc
+RUN  npm install
 
 
 # Entrypoint to docker shell
