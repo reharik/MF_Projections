@@ -15,20 +15,20 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task("copy-source",["clean"], function () {
-    return gulp.src("src/**")
+    return gulp.src("src/**/*")
         .pipe(gulp.dest(config.get("deploy.output.app")+"/src"));
 });
-gulp.task("copy-root",["clean"], function () {
+gulp.task("copy-root",["copy-source"], function () {
     return gulp.src(["package.json", "index.js", "bootstrap.js", ".npmrc"],{dot:true})
         .pipe(gulp.dest(config.get("deploy.output.app")));
 });
 
-gulp.task("copy-config",["clean"], function () {
+gulp.task("copy-config",["copy-root"], function () {
     return  gulp.src("config/**")
         .pipe(gulp.dest(config.get("deploy.output.app")+"/config"));
 });
 
-gulp.task("copy-deploy",["clean"], function () {
+gulp.task("copy-deploy",["copy-config"], function () {
     return gulp.src("deploy/*")
         .pipe(gulp.dest(config.get("deploy.output.deploy")));
 });
@@ -44,8 +44,8 @@ gulp.task('clean-mf_inf', function (cb) {
     del(['src/mf_infrastructure'], cb);
 });
 
-gulp.task('copy-mf_inf',['clean-mf_inf'], function () {
-    gulp.src(['../MF_Infrastructure/output/src/**/*'], { "base" : "../MF_Infrastructure/output/src" }).pipe(gulp.dest('src/mf_infrastructure'));
+gulp.task('copy-mf_inf', function () {
+    return  gulp.src(['../MF_Infrastructure/output/src/**/*'], { "base" : "../MF_Infrastructure/output/src" }).pipe(gulp.dest('src/mf_infrastructure'));
 });
 
 ////////////////////////////////////////////////////
@@ -53,6 +53,6 @@ gulp.task('copy-mf_inf',['clean-mf_inf'], function () {
 gulp.task('pull-mf_inf', ["clean-mf_inf","copy-mf_inf"]);
 
 
-gulp.task("deploy",['pull-mf_inf', "copy-to-buildDir"]);
+gulp.task("deploy",["copy-mf_inf", "copy-to-buildDir"]);
 
 

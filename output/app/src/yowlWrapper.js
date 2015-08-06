@@ -16,7 +16,7 @@ module.exports = function(yowl,config){
         }).info("added Console Sink")
             .addDailyRotateFileSink({
                 level : "info",
-                filename : "/MF_Api.log"
+                filename : "/MF_Projections.log"
             })
             .info("added Daily RotateFile Sink");
         return _yowl;

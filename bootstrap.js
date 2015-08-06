@@ -9,7 +9,7 @@ module.exports = new _container(x=>
         .for('logger').instantiate(x=>x.asFunc()).require('src/yowlWrapper')
         .for('gesConnection').instantiate(x=>x.initializeWithMethod('openConnection'))
         .for('gesRepository').instantiate(x=>x.asFunc())
-        .for('readModelRepository').require("/src/mf_core/postgres/postgresRepository")
+        .for('readModelRepository').require("/src/mf_infrastructure/postgres/postgresRepository")
         .rename('lodash').withThis('_')
         .rename('bluebird').withThis('Promise')
         .complete());
