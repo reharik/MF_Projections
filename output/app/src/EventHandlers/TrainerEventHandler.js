@@ -11,7 +11,6 @@ module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
         };
 
         async trainerHired(event) {
-            console.log(event);
             var trainer = {
                 id: event.id,
                 credentials: event.credentials,
