@@ -36,6 +36,7 @@
     "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
     "eventhandlerbase": "git+https://github.com/reharik/core_eventhandlerbase.git",
     "eventmodels": "git+https://github.com/reharik/core_eventmodels.git",
+    "eventrepository": "git+https://github.com/reharik/core_eventrepository.git",
     "extend": "^3.0.0",
     "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git"
   }
