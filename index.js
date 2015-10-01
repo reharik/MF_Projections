@@ -15,7 +15,7 @@ module.exports = function(_options) {
 
     var dispatcher = container.getInstanceOf('eventdispatcher');
     //var instantiatedDispatcher = dispatcher(options.eventdispatcher);
-    var handlers = container.getArrayOfGroup('EventHandlers');
-    dispatcher.startDispatching(handlers)
+    //var handlers = container.getArrayOfGroup('EventHandlers');
+    //dispatcher.startDispatching(handlers)
 };
 
