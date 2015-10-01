@@ -2,8 +2,8 @@
  * Created by parallels on 7/16/15.
  */
 
-module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
-    return class TrainerSummaryEventHandler extends gesEventHandlerBase {
+module.exports = function(eventhandlerbase, readstorerepository, logger) {
+    return class TrainerSummaryEventHandler extends eventhandlerbase {
         constructor() {
             super();
             this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
@@ -19,21 +19,21 @@ module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
                 emailAddress: event.contact.emailAddress,
                 phoneMobile: event.contact.phoneMobile
             };
-            await readModelRepository.save('trainerSummary', trainer)
+            await readstorerepository.save('trainerSummary', trainer)
         };
 
         async trainerArchived(event) {
-            var trainer = await readModelRepository.getById(event.id, 'trainerSummary');
+            var trainer = await readstorerepository.getById(event.id, 'trainerSummary');
             trainer.archived = true;
             trainer.archivedDate = new Date.now();
-            await readModelRepository.save('trainerSummary', trainer, event.id);
+            await readstorerepository.save('trainerSummary', trainer, event.id);
         };
 
         async trainerUnarchived(event) {
-            var trainer = await readModelRepository.getById(event.id, 'trainerSummary');
+            var trainer = await readstorerepository.getById(event.id, 'trainerSummary');
             trainer.archived = false;
             trainer.archivedDate = new Date.now();
-            await readModelRepository.save('trainerSummary', trainer, event.id);
+            await readstorerepository.save('trainerSummary', trainer, event.id);
         };
     };
 };

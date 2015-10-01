@@ -1,0 +1,2 @@
+#mf_projections
+Your plugin description

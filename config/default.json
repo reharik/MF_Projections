@@ -1,20 +1,15 @@
 {
-  "env":"dev",
-  "eventstore":{
-    "host":"eventstore",
-    "systemUsers": {"admin":"admin"},
-    "adminPassword":"changeit"
-  },
-  "postgres":{
-    "connectionString":"postgres://postgres:password@postgres/",
-    "postgres":"postgres",
-    "methodFitness":"MethodFitness"
-  },
-  "deploy":{
-    "output":{
-      "app":"output/app",
-      "deploy":"output"
+  "configs": {
+    "children": {
+      "postgres": {
+        "connectionString": "postgres://methodfitness:password@postgres/",
+        "postgres": "postgres",
+        "database": "methodfitness"
+      }
     },
-    "buildDirectory":"../MF_BuildFiles/Projections"
+    "logger": {
+      "moduleName": "Projections"
+    },
+    "env": "dev"
   }
 }
