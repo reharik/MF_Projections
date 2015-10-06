@@ -1,8 +1,8 @@
 /**
  * Created by parallels on 7/16/15.
  */
-module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
-    return class TrainerEventHandler extends gesEventHandlerBase {
+module.exports = function(eventhandlerbase, readstorerepository, logger) {
+    return class TrainerEventHandler extends eventhandlerbase {
         constructor() {
             super();
             this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
@@ -18,21 +18,21 @@ module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
                 address: event.address,
                 dob: event.dob
             };
-            await readModelRepository.save('trainer', trainer)
+            await readstorerepository.save('trainer', trainer)
         };
 
         async trainerArchived(event) {
-            var trainer = await readModelRepository.getById(event.id, 'trainer');
+            var trainer = await readstorerepository.getById(event.id, 'trainer');
             trainer.archived = true;
             trainer.archivedDate = new Date.now();
-            await readModelRepository.save('trainer', trainer, event.id);
+            await readstorerepository.save('trainer', trainer, event.id);
         };
 
         async trainerUnarchived(event) {
-            var trainer = await readModelRepository.getById(event.id, 'trainer');
+            var trainer = await readstorerepository.getById(event.id, 'trainer');
             trainer.archived = false;
             trainer.archivedDate = new Date.now();
-            await readModelRepository.save('trainer', trainer, event.id);
+            await readstorerepository.save('trainer', trainer, event.id);
         };
     };
 };

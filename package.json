@@ -1,27 +1,41 @@
 {
-  "name": "MF_Domain",
+  "name": "projections",
   "version": "0.0.1",
+  "private": false,
+  "description": "mf_projections",
+  "homepage": "https://github.com/reharik/mf_projections#readme",
+  "main": "index.js",
   "scripts": {
-    "start": "babel-node --harmony index.js --stage 0"
+    "test": "mocha --require ./babelhook --opts ./tests/mocha.opts ./tests/unitTests/*.js",
+    "intTest": "mocha --require ./babelhook --opts ./tests/mocha.opts ./tests/integrationTests/*.js"
+  },
+  "bugs": {
+    "url": "https://github.com/reharik/mf_projections/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reharik/mf_projections.git"
+  },
+  "keywords": [],
+  "author": "Raif Harik",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
+    "jasmine-core": "^2.3.4",
+    "mocha": "^2.2.5",
+    "mocha-junit-reporter": "^1.6.1",
+    "requirejs": "^2.1.20",
+    "sinon": "^1.15.4"
   },
   "dependencies": {
-    "JSON": "^1.0.0",
-    "bluebird": "^2.9.33",
-    "config": "^1.14.0",
-    "dagon": "0.0.9",
-    "ges-client": "^0.9.1",
-    "invariant": "^2.1.0",
-    "lodash": "^3.10.0",
-    "moment": "^2.10.6",
-    "pg-bluebird": "^1.0.8",
-    "rx": "^2.5.3",
-    "uuid": "^2.0.1",
-    "yowl": "^1.0.29"
-  },
-  "devDependencies": {
-    "babel": "^5.5.6",
-    "babel-runtime": "^5.5.6",
-    "del": "^1.2.0",
-    "gulp": "^3.9.0"
+    "bluebird": "^2.10.1",
+    "config": "^1.16.0",
+    "corelogger": "git+https://github.com/reharik/core_logger.git#master",
+    "dagon": "git+https://github.com/reharik/dagon.git",
+    "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
+    "eventhandlerbase": "git+https://github.com/reharik/core_eventhandlerbase.git",
+    "extend": "^3.0.0",
+    "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git"
   }
 }

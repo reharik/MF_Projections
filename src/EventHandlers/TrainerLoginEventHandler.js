@@ -1,8 +1,8 @@
 /**
  * Created by parallels on 7/16/15.
  */
-module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
-    return class TrainerLoggedInEventHandler extends gesEventHandlerBase {
+module.exports = function(eventhandlerbase, readstorerepository, logger) {
+    return class TrainerLoggedInEventHandler extends eventhandlerbase {
         constructor() {
             super();
             this.handlesEvents = ['trainerLoggedIn'];
@@ -17,7 +17,7 @@ module.exports = function(gesEventHandlerBase, readModelRepository, logger) {
                 token: event.token,
                 date: event.date
             };
-            await readModelRepository.save('trainerLoggedIn', trainerLoggedIn);
+            await readstorerepository.save('trainerLoggedIn', trainerLoggedIn);
         }
     };
 };

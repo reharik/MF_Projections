@@ -12,21 +12,11 @@
         "connectionString": "postgres://methodfitness:password@postgres/",
         "postgres": "postgres",
         "database": "methodfitness"
-      },
-      "eventdispatcher": {
-        "targetStreamType": "command"
       }
     },
     "logger": {
-      "moduleName": "WorkFlows"
+      "moduleName": "Projections"
     },
     "env": "dev"
-  },
-  "deploy":{
-    "output":{
-      "app":"output/app",
-      "deploy":"output"
-    },
-    "buildDirectory":"../MF_BuildFiles/Projections"
   }
 }
