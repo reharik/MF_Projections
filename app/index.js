@@ -6,16 +6,16 @@ var config = require('config');
 
 module.exports = function(_options) {
     var options = {
-        dagon:{
-            application:'projections'
-        }
+        //dagon:{
+        //    application:'projections'
+        //}
     };
     extend(options, config.get('configs') || {}, _options || {});
     var container = require('./registry')(options);
 
     var dispatcher = container.getInstanceOf('eventdispatcher');
-    //var instantiatedDispatcher = dispatcher(options.eventdispatcher);
     var handlers = container.getArrayOfGroup('EventHandlers');
-    dispatcher.startDispatching(handlers)
+    dispatcher.startDispatching(handlers);
+    return container;
 };
 

@@ -1,6 +1,13 @@
 {
   "configs": {
     "children": {
+      "eventstore": {
+        "host": "eventstore",
+        "systemUsers": {
+          "admin": "admin"
+        },
+        "adminPassword": "changeit"
+      },
       "postgres": {
         "connectionString": "postgres://methodfitness:password@postgres/",
         "postgres": "postgres",
