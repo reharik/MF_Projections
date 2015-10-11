@@ -1,8 +1,8 @@
 /**
  * Created by rharik on 10/1/15.
  */
-//var extend = require('extend');
-//var config = require('config');
+var extend = require('extend');
+var config = require('config');
 
 module.exports = function(_options) {
     var options = {
@@ -10,12 +10,12 @@ module.exports = function(_options) {
             application:'projections'
         }
     };
-    //extend(options, config.get('configs') || {}, _options || {});
-    //var container = require('./registry')(options);
-    //
-    //var dispatcher = container.getInstanceOf('eventdispatcher');
+    extend(options, config.get('configs') || {}, _options || {});
+    var container = require('./registry')(options);
+
+    var dispatcher = container.getInstanceOf('eventdispatcher');
     //var instantiatedDispatcher = dispatcher(options.eventdispatcher);
-    //var handlers = container.getArrayOfGroup('EventHandlers');
-    //dispatcher.startDispatching(handlers)
+    var handlers = container.getArrayOfGroup('EventHandlers');
+    dispatcher.startDispatching(handlers)
 };
 

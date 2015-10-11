@@ -3,34 +3,10 @@ plugin:
   volumes:
     - .:/home/app/current
   command:  npm run intTest #top -b
-  links:
-    - postgres:postgres
-    - eventstore:eventstore
+  external_links:
+    - mfworkflows_postgres_1:postgres
+    - mfworkflows_eventstore_1:eventstore
   environment:
     DEBUG: true
     NODE_ENV: development
     APPLICATION_NAME: Projections
-datacontainer:
-  build: ./deploy/datacontainer
-postgres:
-  image: postgres
-  volumes_from:
-    - pgdata
-  environment:
-    - LANG=en_US.UTF-8
-    - POSTGRES_PASSWORD=password
-    - POSTGRES_USER=methodfitness
-  ports:
-    - 5432:5432
-eventstore:
-  build: ./deploy/eventstore
-  ports:
-    - 2113:2113
-    - 1113:1113
-  volumes_from:
-    - datacontainer
-pgdata:
-  image: postgres:latest
-  volumes:
-    - /var/lib/postgresql
-  command: echo "created postgres data container"
