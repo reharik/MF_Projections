@@ -6,7 +6,7 @@ ENV PLUGIN_HOME /home/opt/app/current
 
 RUN mkdir -p $PLUGIN_HOME
 
-ADD ./package.json ./package.json
+ADD ../package.json ./package.json
 
 RUN npm install
 

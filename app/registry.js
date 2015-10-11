@@ -3,15 +3,16 @@
  */
 
 var dagon = require('dagon');
+var path = require('path');
 
 module.exports = function(_options) {
     var options = _options || {};
     var container = dagon(options.dagon);
     var result;
     try {
-        result = new container(x=> x.pathToRoot(__dirname)
-            .requireDirectoryRecursively('./src')
-            .groupAllInDirectory('./src/EventHandlers', 'EventHandlers')
+        result = new container(x=> x.pathToRoot(path.join(__dirname, '..'))
+            .requireDirectoryRecursively('./app/src')
+            .groupAllInDirectory('./app/src/EventHandlers', 'EventHandlers')
             .for('eventhandlerbase').instantiate(i=>i.asFunc().withParameters(options.children || {}))
             .for('eventdispatcher').instantiate(i=>i.asFunc().withParameters(options.children || {}))
             .for('readstorerepository').instantiate(i=>i.asFunc().withParameters(options.children || {}))

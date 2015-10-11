@@ -1,7 +1,7 @@
 projections:
   build: .
   volumes:
-    - .:/home/app/current
+    - ../app:/home/app/current/app
   command:  npm run intTest #top -b
   external_links:
     - mfdata_postgres_1:postgres

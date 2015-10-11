@@ -6,8 +6,8 @@
   "homepage": "https://github.com/reharik/mf_projections#readme",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ./babelhook --opts ./tests/mocha.opts ./tests/unitTests/*.js",
-    "intTest": "mocha --require ./babelhook --opts ./tests/mocha.opts ./tests/integrationTests/*.js"
+    "test": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/unitTests/*.js",
+    "intTest": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/integrationTests/*.js"
   },
   "bugs": {
     "url": "https://github.com/reharik/mf_projections/issues"
@@ -32,7 +32,7 @@
     "bluebird": "^2.10.1",
     "config": "^1.16.0",
     "corelogger": "git+https://github.com/reharik/core_logger.git#master",
-    "dagon": "git+https://github.com/reharik/dagon.git",
+    "dagon": "git+https://github.com/reharik/dagon.git#local",
     "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
     "eventhandlerbase": "git+https://github.com/reharik/core_eventhandlerbase.git",
     "extend": "^3.0.0",
