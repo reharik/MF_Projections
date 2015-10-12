@@ -18,6 +18,9 @@ docker-build:
 run:	#docker-build
 	docker-compose run --rm projections
 
+build:
+	docker-compose build
+
 jenkins-cover:
 	./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --recursive test -R spec
 	CODECLIMATE_REPO_TOKEN=fe8532fa67feabb2f94fa982a648b255ade5e5b55ff20e92bb330b3eb4a31852 ./node_modules/.bin/codeclimate-test-reporter < coverage/lcov.info
