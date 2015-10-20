@@ -1,4 +1,4 @@
-NAME=projections
+NAME=mfprojections_projections
 VERSION=latest
 
 test:
@@ -16,7 +16,8 @@ docker-build:
 	docker build -t $(NAME) -f Dockerfile .
 
 run:	docker-build
-	docker-compose -f docker-compose.yml run --rm projections
+	docker-compose up
+#	docker-compose -f docker-compose.yml run --rm projections
 
 build:
 	docker-compose build

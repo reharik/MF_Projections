@@ -6,7 +6,7 @@
 var extend = require('extend');
 var config = require('config');
 
-module.exports = function(_options) {
+module.exports = async function(_options) {
     var options = {
         //dagon:{
         //    application:'projections'
@@ -14,10 +14,9 @@ module.exports = function(_options) {
     };
     extend(options, config.get('configs') || {}, _options || {});
     var container = require('./registry')(options);
-
     var dispatcher = container.getInstanceOf('eventdispatcher');
     var handlers = container.getArrayOfGroup('EventHandlers');
-    dispatcher.startDispatching(handlers);
+    await dispatcher.startDispatching(handlers);
     return container;
 }();
 
