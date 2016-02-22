@@ -3,12 +3,11 @@
  */
 "use strict";
 
-module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
+module.exports = function(eventhandlerbase, readstorerepository, logger) {
     return class TrainerSummaryEventHandler extends eventhandlerbase {
         constructor() {
             super();
             this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
-            this.handlesEvents = [];
             this.handlerName   = 'TrainerSummaryEventHandler';
             logger.info('TrainerSummaryEventHandler started up');
         }
@@ -22,7 +21,6 @@ module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
                 phoneMobile : event.contact.phoneMobile
             };
             yield readstorerepository.save('trainerSummary', trainer);
-            return 'success';
         }
 
         *trainerArchived(event) {
@@ -30,7 +28,6 @@ module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
             trainer.archived     = true;
             trainer.archivedDate = new Date.now();
             yield readstorerepository.save('trainerSummary', trainer, event.id);
-            return 'success';
         }
 
         *trainerUnarchived(event) {
@@ -38,7 +35,6 @@ module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
             trainer.archived     = false;
             trainer.archivedDate = new Date.now();
             yield readstorerepository.save('trainerSummary', trainer, event.id);
-            return 'success';
         }
     };
 };

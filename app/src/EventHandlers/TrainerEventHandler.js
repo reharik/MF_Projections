@@ -3,7 +3,7 @@
  */
 "use strict";
 
-module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
+module.exports = function(eventhandlerbase, readstorerepository, logger) {
     return class TrainerEventHandler extends eventhandlerbase {
         constructor() {
             super();
@@ -15,14 +15,12 @@ module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
         *trainerHired(event) {
             var trainer = {
                 id         : event.id,
-                credentials: event.credentials,
                 contact    : event.contact,
                 address    : event.address,
                 dob        : event.dob
             };
 
             yield readstorerepository.save('trainer', trainer);
-            return 'success';
         }
 
         *trainerArchived(event) {
@@ -30,7 +28,6 @@ module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
             trainer.archived     = true;
             trainer.archivedDate = new Date.now();
             yield readstorerepository.save('trainer', trainer, event.id);
-            return 'success';
         }
 
         *trainerUnarchived(event) {
@@ -38,7 +35,6 @@ module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
             trainer.archived     = false;
             trainer.archivedDate = new Date.now();
             yield readstorerepository.save('trainer', trainer, event.id);
-            return 'success';
         }
     };
 };
