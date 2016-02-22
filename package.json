@@ -6,7 +6,7 @@
   "homepage": "https://github.com/reharik/mf_projections#readme",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node app/index.js",
+    "start": "node app/index.js",
     "test": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/unitTests/*.js",
     "intTest": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/integrationTests/*.js"
   },
@@ -30,13 +30,21 @@
     "sinon": "^1.15.4"
   },
   "dependencies": {
-    "bluebird": "^2.10.1",
-    "config": "^1.16.0",
-    "corelogger": "git+https://github.com/reharik/core_logger.git#master",
-    "dagon": "git+https://github.com/reharik/dagon.git#local",
-    "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
-    "eventhandlerbase": "git+https://github.com/reharik/core_eventhandlerbase.git",
+    "JSON": "^1.0.0",
+    "appdomain": "git://github.com/reharik/mf_domain.git",
+    "bluebird": "^2.9.33",
+    "co": "^4.6.0",
+    "config": "^1.14.0",
+    "corelogger": "git://github.com/reharik/core_logger.git",
+    "dagon": "git://github.com/reharik/dagon.git",
+    "eventdispatcher": "git://github.com/reharik/core_eventDispatcher.git",
+    "eventhandlerbase": "git://github.com/reharik/core_eventHandlerBase.git",
+    "eventrepository": "git://github.com/reharik/core_eventRepository.git",
+    "eventstore": "git://github.com/reharik/core_eventStore.git",
     "extend": "^3.0.0",
-    "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git"
+    "pg-bluebird": "^1.0.8",
+    "ramda": "^0.18.0",
+    "ramda-fantasy": "^0.4.1",
+    "uuid": "^2.0.1"
   }
 }

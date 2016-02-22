@@ -3,38 +3,42 @@
  */
 "use strict";
 
-module.exports = function(eventhandlerbase, readstorerepository, logger) {
+module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
     return class TrainerSummaryEventHandler extends eventhandlerbase {
         constructor() {
             super();
             this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
-            this.eventHandlerName = 'TrainerSummaryEventHandler';
+            this.handlesEvents = [];
+            this.handlerName   = 'TrainerSummaryEventHandler';
             logger.info('TrainerSummaryEventHandler started up');
-        };
+        }
 
-        async trainerHired(event) {
+        *trainerHired(event) {
             var trainer = {
-                id: event.id,
-                firstName: event.contact.firstName,
-                lastName: event.contact.lastName,
+                id          : event.id,
+                firstName   : event.contact.firstName,
+                lastName    : event.contact.lastName,
                 emailAddress: event.contact.emailAddress,
-                phoneMobile: event.contact.phoneMobile
+                phoneMobile : event.contact.phoneMobile
             };
-            await readstorerepository.save('trainerSummary', trainer)
-        };
+            yield readstorerepository.save('trainerSummary', trainer);
+            return 'success';
+        }
 
-        async trainerArchived(event) {
-            var trainer = await readstorerepository.getById(event.id, 'trainerSummary');
-            trainer.archived = true;
+        *trainerArchived(event) {
+            var trainer          = yield readstorerepository.getById(event.id, 'trainerSummary');
+            trainer.archived     = true;
             trainer.archivedDate = new Date.now();
-            await readstorerepository.save('trainerSummary', trainer, event.id);
-        };
+            yield readstorerepository.save('trainerSummary', trainer, event.id);
+            return 'success';
+        }
 
-        async trainerUnarchived(event) {
-            var trainer = await readstorerepository.getById(event.id, 'trainerSummary');
-            trainer.archived = false;
+        *trainerUnarchived(event) {
+            var trainer          = yield readstorerepository.getById(event.id, 'trainerSummary');
+            trainer.archived     = false;
             trainer.archivedDate = new Date.now();
-            await readstorerepository.save('trainerSummary', trainer, event.id);
-        };
+            yield readstorerepository.save('trainerSummary', trainer, event.id);
+            return 'success';
+        }
     };
 };

@@ -3,23 +3,24 @@
  */
 "use strict";
 
-module.exports = function(eventhandlerbase, readstorerepository, logger) {
+module.exports = function(eventhandlerbase, readstorerepository, logger,co) {
     return class TrainerLoggedInEventHandler extends eventhandlerbase {
         constructor() {
             super();
             this.handlesEvents = ['trainerLoggedIn'];
-            this.eventHandlerName = 'TrainerLoggedInEventHandler';
+            this.handlerName = 'TrainerLoggedInEventHandler';
             logger.info('TrainerLoggedInEventHandler started up');
         }
 
-        async trainerLoggedIn(event) {
+        *trainerLoggedIn(event) {
             var trainerLoggedIn = {
                 userName: event.userName,
-                id: event.id,
-                token: event.token,
-                date: event.date
+                id      : event.id,
+                token   : event.token,
+                date    : event.date
             };
-            await readstorerepository.save('trainerLoggedIn', trainerLoggedIn);
+            yield readstorerepository.save('trainerLoggedIn', trainerLoggedIn);
+            return 'success';
         }
     };
 };

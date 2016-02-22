@@ -3,38 +3,42 @@
  */
 "use strict";
 
-module.exports = function(eventhandlerbase, readstorerepository, logger) {
+module.exports = function(eventhandlerbase, readstorerepository, logger, co) {
     return class TrainerEventHandler extends eventhandlerbase {
         constructor() {
             super();
             this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
-            this.eventHandlerName = 'TrainerEventHandler';
+            this.handlerName   = 'TrainerEventHandler';
             logger.info('TrainerEventHandler started up');
-        };
+        }
 
-        async trainerHired(event) {
+        *trainerHired(event) {
             var trainer = {
-                id: event.id,
+                id         : event.id,
                 credentials: event.credentials,
-                contact: event.contact,
-                address: event.address,
-                dob: event.dob
+                contact    : event.contact,
+                address    : event.address,
+                dob        : event.dob
             };
-            await readstorerepository.save('trainer', trainer)
-        };
 
-        async trainerArchived(event) {
-            var trainer = await readstorerepository.getById(event.id, 'trainer');
-            trainer.archived = true;
-            trainer.archivedDate = new Date.now();
-            await readstorerepository.save('trainer', trainer, event.id);
-        };
+            yield readstorerepository.save('trainer', trainer);
+            return 'success';
+        }
 
-        async trainerUnarchived(event) {
-            var trainer = await readstorerepository.getById(event.id, 'trainer');
-            trainer.archived = false;
+        *trainerArchived(event) {
+            var trainer          = yield readstorerepository.getById(event.id, 'trainer');
+            trainer.archived     = true;
             trainer.archivedDate = new Date.now();
-            await readstorerepository.save('trainer', trainer, event.id);
-        };
+            yield readstorerepository.save('trainer', trainer, event.id);
+            return 'success';
+        }
+
+        *trainerUnarchived(event) {
+            var trainer          = yield readstorerepository.getById(event.id, 'trainer');
+            trainer.archived     = false;
+            trainer.archivedDate = new Date.now();
+            yield readstorerepository.save('trainer', trainer, event.id);
+            return 'success';
+        }
     };
 };
