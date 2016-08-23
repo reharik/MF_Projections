@@ -3,8 +3,8 @@
  */
 "use strict";
 
-module.exports = function(eventhandlerbase, readstorerepository, logger) {
-    return class TrainerSummaryEventHandler extends eventhandlerbase {
+module.exports = function(eventHandler, rsRepository, logger) {
+    return class TrainerSummaryEventHandler extends eventHandler {
         constructor() {
             super();
             this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
@@ -20,21 +20,21 @@ module.exports = function(eventhandlerbase, readstorerepository, logger) {
                 emailAddress: event.contact.emailAddress,
                 phoneMobile : event.contact.phoneMobile
             };
-            yield readstorerepository.save('trainerSummary', trainer);
+            return yield rsRepository.save('trainerSummary', trainer);
         }
 
         *trainerArchived(event) {
-            var trainer          = yield readstorerepository.getById(event.id, 'trainerSummary');
+            var trainer          = yield rsRepository.getById(event.id, 'trainerSummary');
             trainer.archived     = true;
             trainer.archivedDate = new Date.now();
-            yield readstorerepository.save('trainerSummary', trainer, event.id);
+            return yield rsRepository.save('trainerSummary', trainer, event.id);
         }
 
         *trainerUnarchived(event) {
-            var trainer          = yield readstorerepository.getById(event.id, 'trainerSummary');
+            var trainer          = yield rsRepository.getById(event.id, 'trainerSummary');
             trainer.archived     = false;
             trainer.archivedDate = new Date.now();
-            yield readstorerepository.save('trainerSummary', trainer, event.id);
+            return yield rsRepository.save('trainerSummary', trainer, event.id);
         }
     };
 };

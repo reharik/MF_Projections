@@ -9,7 +9,7 @@ var fs = require('fs');
 
 describe('appendToStreamPromiseTester', function() {
     var handlers;
-    var eventdispatcher;
+    var eventDispatcher;
     var options = {
         //dagon:{
         //    logger: {
@@ -24,13 +24,13 @@ describe('appendToStreamPromiseTester', function() {
         extend(options, config.get('configs') || {});
         container = require('../../registry')(options);
         handlers = container.getArrayOfGroup('EventHandlers');
-        eventdispatcher = container.getInstanceOf('eventdispatcher');
+        eventDispatcher = container.getInstanceOf('eventDispatcher');
 
         });
 
         context('append to stream', ()=> {
             it('should resolve with success', async ()=> {
-                var result = await eventdispatcher.startDispatching(handlers);
+                var result = await eventDispatcher.startDispatching(handlers);
             })
         });
     });

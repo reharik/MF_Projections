@@ -3,9 +3,9 @@
  */
 "use strict";
 
-module.exports = function(eventdispatcher, EventHandlers_array){
+module.exports = function(eventDispatcher, EventHandlers_array){
     return function(){
 
-        eventdispatcher(EventHandlers_array.map(x=>new x())).startDispatching('event');
+        eventDispatcher(EventHandlers_array.map(x=>new x())).startDispatching('event');
     };
 };

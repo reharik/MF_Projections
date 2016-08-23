@@ -3,8 +3,8 @@
  */
 "use strict";
 
-module.exports = function(eventhandlerbase, readstorerepository, logger) {
-    return class TrainerLoggedInEventHandler extends eventhandlerbase {
+module.exports = function(eventHandler, rsRepository, logger) {
+    return class TrainerLoggedInEventHandler extends eventHandler {
         constructor() {
             super();
             this.handlesEvents = ['trainerLoggedIn'];
@@ -19,7 +19,7 @@ module.exports = function(eventhandlerbase, readstorerepository, logger) {
                 token   : event.token,
                 date    : event.date
             };
-            yield readstorerepository.save('trainerLoggedIn', trainerLoggedIn);
+            return yield rsRepository.save('trainerLoggedIn', trainerLoggedIn);
         }
     };
 };
