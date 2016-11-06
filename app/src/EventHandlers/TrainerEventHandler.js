@@ -16,7 +16,6 @@ module.exports = function(eventHandler, rsRepository, logger) {
             var trainer = {
                 id         : event.id,
                 contact    : event.contact,
-                address    : event.address,
                 dob        : event.dob
             };
 
