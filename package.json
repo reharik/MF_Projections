@@ -6,7 +6,7 @@
   "homepage": "https://github.com/reharik/mf_projections#readme",
   "main": "index.js",
   "scripts": {
-    "start": "node app/index.js",
+    "start": "node --harmony-async-await app/index.js",
     "test": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/unitTests/*.js",
     "intTest": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/integrationTests/*.js"
   },
