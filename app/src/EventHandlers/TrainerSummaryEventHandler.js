@@ -3,16 +3,11 @@
  */
 "use strict";
 
-module.exports = function(eventHandler, rsRepository, logger) {
-    return class TrainerSummaryEventHandler extends eventHandler {
-        constructor() {
-            super();
-            this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
-            this.handlerName   = 'TrainerSummaryEventHandler';
-            logger.info('TrainerSummaryEventHandler started up');
-        }
+module.exports = function(rsRepository, logger) {
+    return function TrainerSummaryEventHandler() {
+        logger.info('TrainerSummaryEventHandler started up');
 
-        *trainerHired(event) {
+        async function trainerHired(event) {
             var trainer = {
                 id          : event.id,
                 firstName   : event.contact.firstName,
@@ -20,21 +15,28 @@ module.exports = function(eventHandler, rsRepository, logger) {
                 emailAddress: event.contact.emailAddress,
                 phoneMobile : event.contact.phoneMobile
             };
-            return yield rsRepository.save('trainerSummary', trainer);
+            return await rsRepository.save('trainerSummary', trainer);
         }
 
-        *trainerArchived(event) {
-            var trainer          = yield rsRepository.getById(event.id, 'trainerSummary');
+        async function trainerArchived(event) {
+            var trainer          = await rsRepository.getById(event.id, 'trainerSummary');
             trainer.archived     = true;
             trainer.archivedDate = new Date.now();
-            return yield rsRepository.save('trainerSummary', trainer, event.id);
+            return await rsRepository.save('trainerSummary', trainer, event.id);
         }
 
-        *trainerUnarchived(event) {
-            var trainer          = yield rsRepository.getById(event.id, 'trainerSummary');
+        async function trainerUnarchived(event) {
+            var trainer          = await rsRepository.getById(event.id, 'trainerSummary');
             trainer.archived     = false;
             trainer.archivedDate = new Date.now();
-            return yield rsRepository.save('trainerSummary', trainer, event.id);
+            return await rsRepository.save('trainerSummary', trainer, event.id);
+        }
+        
+        return {
+            handlerName: 'TrainerSummaryEventHandler',
+            trainerHired,
+            trainerArchived,
+            trainerUnarchived
         }
     };
 };

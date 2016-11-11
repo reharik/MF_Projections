@@ -3,16 +3,11 @@
  */
 "use strict";
 
-module.exports = function(eventHandler, rsRepository, logger) {
-    return class UserEventHandler extends eventHandler {
-        constructor() {
-            super();
-            this.handlesEvents = ['trainerHired', 'trainerArchived', 'trainerUnarchived'];
-            this.handlerName   = 'UserEventHandler';
-            logger.info('UserEventHandler started up');
-        }
+module.exports = function(rsRepository, logger) {
+    return function UserEventHandler() {
+        logger.info('UserEventHandler started up');
 
-        *trainerHired(event) {
+        async function trainerHired(event) {
             var user = {
                 id      : event.id,
                 userName: event.credentials.userName,
@@ -20,19 +15,26 @@ module.exports = function(eventHandler, rsRepository, logger) {
                 active  : true
             };
 
-            return yield rsRepository.save('user', user);
+            return await rsRepository.save('user', user);
         }
 
-        *trainerArchived(event) {
-            var user    = yield rsRepository.getById(event.id, 'user');
+        async function trainerArchived(event) {
+            var user    = await rsRepository.getById(event.id, 'user');
             user.active = false;
-            return yield rsRepository.save('user', user, event.id);
+            return await rsRepository.save('user', user, event.id);
         }
 
-        *trainerUnarchived(event) {
-            var user    = yield rsRepository.getById(event.id, 'user');
+        async function trainerUnarchived(event) {
+            var user    = await rsRepository.getById(event.id, 'user');
             user.active = true;
-            return yield rsRepository.save('user', user, event.id);
+            return await rsRepository.save('user', user, event.id);
+        }
+
+        return {
+            handlerName: 'UserEventHandler',
+            trainerHired,
+            trainerArchived,
+            trainerUnarchived
         }
     };
 };

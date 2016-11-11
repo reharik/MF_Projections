@@ -1,4 +1,4 @@
-NAME=projections/dispatcher
+NAME=mf_projections
 VERSION=$$(git rev-parse --short HEAD)
 NODE_ENV=qa
 

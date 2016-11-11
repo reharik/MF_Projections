@@ -1,11 +1,7 @@
-/**
- * Created by reharik on 2/20/16.
- */
-"use strict";
 
-module.exports = function(eventDispatcher, EventHandlers_array){
+module.exports = function(eventDispatcher, EventHandlers_array, eventReceiver){
     return function(){
-
-        eventDispatcher(EventHandlers_array.map(x=>new x())).startDispatching('event');
+        var source = eventDispatcher().startDispatching('event');
+        EventHandlers_array.map(x => eventReceiver(source, x()));
     };
 };

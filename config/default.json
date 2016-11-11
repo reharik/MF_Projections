@@ -2,7 +2,7 @@
   "configs": {
     "children": {
       "eventstore": {
-        "host": "172.19.0.3",
+        "host": "eventstore",
         "systemUsers": {
           "admin": "admin"
         },
