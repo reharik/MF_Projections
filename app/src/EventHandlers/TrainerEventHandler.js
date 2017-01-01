@@ -11,10 +11,34 @@ module.exports = function(rsRepository, logger) {
             var trainer = {
                 id         : event.id,
                 contact    : event.contact,
-                dob        : event.dob
+                dob        : event.dob,
+                color        : event.color
             };
 
             return await rsRepository.save('trainer', trainer);
+        }
+
+        async function trainerContactUpdated(event) {
+            var trainer          = await rsRepository.getById(event.id, 'trainer');
+            trainer.contact.email = event.contact.email;
+            trainer.contact.secondaryPhone = event.contact.secondaryPhone;
+            trainer.contact.mobilePhone = event.contact.mobilePhone;
+            return await rsRepository.save('trainer', trainer, event.id);
+        }
+
+        async function trainerAddressUpdated(event) {
+            var trainer          = await rsRepository.getById(event.id, 'trainer');
+            trainer.contact.address = event.address;
+            return await rsRepository.save('trainer', trainer, event.id);
+        }
+
+        async function trainerInfoUpdated(event) {
+            var trainer          = await rsRepository.getById(event.id, 'trainer');
+            trainer.contact.firstName     = event.firstName;
+            trainer.contact.lastName     = event.lastName;
+            trainer.dob     = event.dob;
+            trainer.color     = event.color;
+            return await rsRepository.save('trainer', trainer, event.id);
         }
 
         async function trainerArchived(event) {
@@ -35,7 +59,10 @@ module.exports = function(rsRepository, logger) {
             handlerName: 'TrainerEventHandler',
             trainerHired,
             trainerArchived,
-            trainerUnarchived
+            trainerUnarchived,
+            trainerContactUpdated,
+            trainerAddressUpdated,
+            trainerInfoUpdated
         }
     };
 };

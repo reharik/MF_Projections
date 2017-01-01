@@ -30,11 +30,25 @@ module.exports = function(rsRepository, logger) {
             return await rsRepository.save('user', user, event.id);
         }
 
+        async function trainerContactUpdated(event) {
+            var user    = await rsRepository.getById(event.id, 'user');
+            user.userName = event.contact.email;
+            return await rsRepository.save('user', user, event.id);
+        }
+
+        async function trainerPasswordUpdated(event) {
+            var user    = await rsRepository.getById(event.id, 'user');
+            user.password = event.credentials.password;
+            return await rsRepository.save('user', user, event.id);
+        }
+
         return {
             handlerName: 'UserEventHandler',
             trainerHired,
             trainerArchived,
-            trainerUnarchived
+            trainerUnarchived,
+            trainerContactUpdated,
+            trainerPasswordUpdated
         }
     };
 };
