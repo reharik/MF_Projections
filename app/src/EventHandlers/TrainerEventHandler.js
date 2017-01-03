@@ -12,7 +12,8 @@ module.exports = function(rsRepository, logger) {
                 id         : event.id,
                 contact    : event.contact,
                 birthDate        : event.birthDate,
-                color        : event.color
+                color        : event.color,
+                clients     : event.clients
             };
 
             return await rsRepository.save('trainer', trainer);
@@ -54,6 +55,12 @@ module.exports = function(rsRepository, logger) {
             trainer.archivedDate = new Date.now();
             return await rsRepository.save('trainer', trainer, event.id);
         }
+
+        async function trainersClientsUpdated(event) {
+            var trainer          = await rsRepository.getById(event.id, 'trainer');
+            trainer.clients = event.clients;
+            return await rsRepository.save('trainer', trainer, event.id);
+        }
         
         return {
             handlerName: 'TrainerEventHandler',
@@ -62,7 +69,8 @@ module.exports = function(rsRepository, logger) {
             trainerUnarchived,
             trainerContactUpdated,
             trainerAddressUpdated,
-            trainerInfoUpdated
+            trainerInfoUpdated,
+            trainersClientsUpdated
         }
     };
 };
