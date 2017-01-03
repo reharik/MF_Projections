@@ -11,7 +11,7 @@ module.exports = function(rsRepository, logger) {
             var trainer = {
                 id         : event.id,
                 contact    : event.contact,
-                dob        : event.dob,
+                birthDate        : event.birthDate,
                 color        : event.color
             };
 
@@ -36,7 +36,7 @@ module.exports = function(rsRepository, logger) {
             var trainer          = await rsRepository.getById(event.id, 'trainer');
             trainer.contact.firstName     = event.firstName;
             trainer.contact.lastName     = event.lastName;
-            trainer.dob     = event.dob;
+            trainer.birthDate     = event.birthDate;
             trainer.color     = event.color;
             return await rsRepository.save('trainer', trainer, event.id);
         }
