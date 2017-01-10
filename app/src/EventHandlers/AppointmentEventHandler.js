@@ -3,7 +3,7 @@ module.exports = function(rsRepository, logger) {
         logger.info('AppointmentEventHandler started up');
 
         async function appointmentScheduled(event) {
-            var appointment = {...event};
+            var appointment = Object.assign({}, event);
 
             return await rsRepository.save('appointment', appointment);
         }
