@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "JSON": "^1.0.0",
-    "appdomain": "git://github.com/reharik/mf_domain.git",
     "bluebird": "^3.4.1",
     "co": "^4.6.0",
     "config": "^1.14.0",
