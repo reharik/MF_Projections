@@ -32,7 +32,6 @@
   "dependencies": {
     "JSON": "^1.0.0",
     "bluebird": "^3.4.1",
-    "co": "^4.6.0",
     "config": "^1.14.0",
     "corelogger": "git://github.com/reharik/core_logger.git",
     "dagon": "git://github.com/reharik/dagon.git",
