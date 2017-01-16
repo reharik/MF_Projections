@@ -3,9 +3,18 @@ module.exports = function(rsRepository, logger) {
         logger.info('AppointmentEventHandler started up');
 
         async function appointmentScheduled(event) {
-            var appointment = Object.assign({}, event);
-
-            return await rsRepository.save('appointment', appointment);
+                        
+            var sql = `INSERT INTO "appointment" (
+            "id", 
+            "localDate",
+            "trainer",
+            "document"
+            ) VALUES ('
+            ${ event.id }',
+            ${ event.localDate }',
+            ${ event.trainer }',
+            '${JSON.stringify(event)}')`;
+            return await rsRepository.saveQuery(sql);
         }
 
         return {
