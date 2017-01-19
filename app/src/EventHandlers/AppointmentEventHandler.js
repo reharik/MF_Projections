@@ -6,7 +6,7 @@ module.exports = function(rsRepository, logger) {
                         
             var sql = `INSERT INTO "appointment" (
             "id", 
-            "localDate",
+            "date",
             "trainer",
             "document"
             ) VALUES ('
