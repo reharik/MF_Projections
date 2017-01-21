@@ -9,10 +9,10 @@ module.exports = function(rsRepository, logger) {
             "date",
             "trainer",
             "document"
-            ) VALUES ('
-            ${ event.id }',
-            ${ event.localDate }',
-            ${ event.trainer }',
+            ) VALUES (
+            '${ event.id }',
+            '${ event.localDate }',
+            '${ event.trainer }',
             '${JSON.stringify(event)}')`;
             return await rsRepository.saveQuery(sql);
         }
