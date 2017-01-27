@@ -10,8 +10,9 @@ module.exports = function(rsRepository, logger) {
         async function trainerHired(event) {
             var user = {
                 id      : event.id,
-                userName: event.credentials.userName,
+                userName: event.contact.email,
                 password: event.credentials.password,
+                role    : event.credentials.role,
                 active  : true
             };
 
