@@ -13,7 +13,7 @@ module.exports = function(rsRepository, logger) {
             ) VALUES (
             '${ event.id }',
             '${ event.entityName }',
-            '${ event.trainer.id }',
+            '${ event.trainer }',
             '${JSON.stringify(event)}')`;
             return await rsRepository.saveQuery(sql);
         }
@@ -49,7 +49,7 @@ module.exports = function(rsRepository, logger) {
 
             var sql = `update "appointment" set
             "date" = '${event.entityName}',
-            "trainer" = '${event.trainer.id}',
+            "trainer" = '${event.trainer }',
             "document" = '${JSON.stringify(event)}'
             where "id" = '${event.id}'`;
             return await rsRepository.saveQuery(sql);
