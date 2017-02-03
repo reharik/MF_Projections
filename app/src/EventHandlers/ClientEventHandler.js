@@ -10,6 +10,10 @@ module.exports = function(rsRepository, logger) {
         async function clientAdded(event) {
             var client = {
                 id         : event.id,
+                source      : event.source,
+                sourceNotes : event.sourceNotes,
+                startDate   : event.startDate,
+                birthdate   : event.birthDate,
                 contact    : event.contact
             };
 
