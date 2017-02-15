@@ -40,3 +40,4 @@ deployment/Dockerrun.*
 
 #Docker compose
 docker/docker-compose-test.yml
+.orig

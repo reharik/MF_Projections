@@ -18,16 +18,26 @@ module.exports = function(rsRepository, logger) {
             return await rsRepository.saveQuery(sql);
         }
 
+        async function appointmentMovedFromDifferentDay(event) {
+            logger.info('handling appointmentMovedFromDifferentDay event');
+            var sql = `INSERT INTO "appointment" (
+            "id", 
+            "date",
+            "trainer",
+            "document"
+            ) VALUES (
+            '${ event.id }',
+            '${ event.entityName }',
+            '${ event.trainer }',
+            '${JSON.stringify(event)}')`;
+            return await rsRepository.saveQuery(sql);
+        }
+
         async function appointmentCanceled(event) {
             logger.info('handling appointmentCanceled event');
 
             var sql = `DELETE FROM "appointment" where "id" = '${event.id}'`;
             return await rsRepository.saveQuery(sql);
-        }
-
-        async function appointmentMovedFromDifferentDay(event) {
-            logger.info('handling appointmentMovedFromDifferentDay event');
-            return appointmentUpdated(event);
         }
 
         async function appointmentTypeChanged(event) {
