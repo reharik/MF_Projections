@@ -13,7 +13,7 @@ module.exports = function(rsRepository, logger) {
                 source      : event.source,
                 sourceNotes : event.sourceNotes,
                 startDate   : event.startDate,
-                birthdate   : event.birthDate,
+                birthDate   : event.birthDate,
                 contact    : event.contact
             };
 
@@ -38,6 +38,15 @@ module.exports = function(rsRepository, logger) {
             var client          = await rsRepository.getById(event.id, 'client');
             client.contact.firstName     = event.firstName;
             client.contact.lastName     = event.lastName;
+            client.birthDate     = event.birthDate;
+            return await rsRepository.save('client', client, event.id);
+        }
+
+        async function clientSourceUpdated(event) {
+            var client = await rsRepository.getById(event.id, 'client');
+            client.source = event.source;
+            client.sourceNotes = event.sourceNotes;
+            client.startDate = event.startDate;
             return await rsRepository.save('client', client, event.id);
         }
 
@@ -62,7 +71,8 @@ module.exports = function(rsRepository, logger) {
             clientUnarchived,
             clientContactUpdated,
             clientAddressUpdated,
-            clientInfoUpdated
+            clientInfoUpdated,
+            clientSourceUpdated
         }
     };
 };
