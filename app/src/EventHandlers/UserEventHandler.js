@@ -21,14 +21,17 @@ module.exports = function(rsRepository, logger) {
 
         async function trainerArchived(event) {
             var user    = await rsRepository.getById(event.id, 'user');
-            user.active = false;
-            return await rsRepository.save('user', user, event.id);
+            user.active = true;
+            var sql = `UPDATE "user" SET "archived" = 'true', document = '${JSON.stringify(user)}' where id = '${event.id}'`;
+            return await rsRepository.saveQuery(sql);
         }
 
-        async function trainerUnarchived(event) {
+        async function trainerUnArchived(event) {
             var user    = await rsRepository.getById(event.id, 'user');
-            user.active = true;
-            return await rsRepository.save('user', user, event.id);
+            user.active = false;
+
+            var sql = `UPDATE "user" SET "archived" = 'false', document = '${JSON.stringify(user)}' where id = '${event.id}'`;
+            return await rsRepository.saveQuery(sql);
         }
 
         async function trainerContactUpdated(event) {
@@ -47,7 +50,7 @@ module.exports = function(rsRepository, logger) {
             handlerName: 'UserEventHandler',
             trainerHired,
             trainerArchived,
-            trainerUnarchived,
+            trainerUnArchived,
             trainerContactUpdated,
             trainerPasswordUpdated
         }

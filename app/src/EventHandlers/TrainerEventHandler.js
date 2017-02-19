@@ -46,14 +46,16 @@ module.exports = function(rsRepository, logger) {
             var trainer          = await rsRepository.getById(event.id, 'trainer');
             trainer.archived     = true;
             trainer.archivedDate = new Date.now();
-            return await rsRepository.save('trainer', trainer, event.id);
+            var sql = `UPDATE "trainer" SET "archived" = 'true', document = '${JSON.stringify(trainer)}' where id = '${event.id}'`;
+            return await rsRepository.saveQuery(sql);
         }
 
-        async function trainerUnarchived(event) {
+        async function trainerUnArchived(event) {
             var trainer          = await rsRepository.getById(event.id, 'trainer');
             trainer.archived     = false;
             trainer.archivedDate = new Date.now();
-            return await rsRepository.save('trainer', trainer, event.id);
+            var sql = `UPDATE "trainer" SET "archived" = 'false', document = '${JSON.stringify(trainer)}' where id = '${event.id}'`;
+            return await rsRepository.saveQuery(sql);
         }
 
         async function trainersClientsUpdated(event) {
@@ -66,7 +68,7 @@ module.exports = function(rsRepository, logger) {
             handlerName: 'TrainerEventHandler',
             trainerHired,
             trainerArchived,
-            trainerUnarchived,
+            trainerUnArchived,
             trainerContactUpdated,
             trainerAddressUpdated,
             trainerInfoUpdated,

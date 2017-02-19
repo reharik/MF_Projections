@@ -13,7 +13,7 @@ module.exports = function(rsRepository, logger) {
                 source      : event.source,
                 sourceNotes : event.sourceNotes,
                 startDate   : event.startDate,
-                birthDate   : event.birthDate,
+                birthate   : event.birthDate,
                 contact    : event.contact
             };
 
@@ -54,21 +54,23 @@ module.exports = function(rsRepository, logger) {
             var client          = await rsRepository.getById(event.id, 'client');
             client.archived     = true;
             client.archivedDate = new Date.now();
-            return await rsRepository.save('client', client, event.id);
+            var sql = `UPDATE "client" SET "archived" = 'true', document = '${JSON.stringify(client)}' where id = '${event.id}'`;
+            return await rsRepository.saveQuery(sql);
         }
 
-        async function clientUnarchived(event) {
+        async function clientUnArchived(event) {
             var client          = await rsRepository.getById(event.id, 'client');
             client.archived     = false;
             client.archivedDate = new Date.now();
-            return await rsRepository.save('client', client, event.id);
+            var sql = `UPDATE "client" SET "archived" = 'false', document = '${JSON.stringify(client)}' where id = '${event.id}'`;
+            return await rsRepository.saveQuery(sql);
         }
-        
+
         return {
             handlerName: 'ClientEventHandler',
             clientAdded,
             clientArchived,
-            clientUnarchived,
+            clientUnArchived,
             clientContactUpdated,
             clientAddressUpdated,
             clientInfoUpdated,
