@@ -3,7 +3,7 @@
  */
 "use strict";
 
-module.exports = function(rsRepository, logger) {
+module.exports = function(rsRepository, moment, logger) {
     return function ClientEventHandler() {
         logger.info('ClientEventHandler started up');
 
@@ -53,7 +53,7 @@ module.exports = function(rsRepository, logger) {
         async function clientArchived(event) {
             var client          = await rsRepository.getById(event.id, 'client');
             client.archived     = true;
-            client.archivedDate = new Date.now();
+            client.archivedDate = moment().toISOString();
             var sql = `UPDATE "client" SET "archived" = 'true', document = '${JSON.stringify(client)}' where id = '${event.id}'`;
             return await rsRepository.saveQuery(sql);
         }
@@ -61,7 +61,7 @@ module.exports = function(rsRepository, logger) {
         async function clientUnArchived(event) {
             var client          = await rsRepository.getById(event.id, 'client');
             client.archived     = false;
-            client.archivedDate = new Date.now();
+            client.archivedDate = moment().toISOString();
             var sql = `UPDATE "client" SET "archived" = 'false', document = '${JSON.stringify(client)}' where id = '${event.id}'`;
             return await rsRepository.saveQuery(sql);
         }

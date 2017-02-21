@@ -3,7 +3,7 @@
  */
 "use strict";
 
-module.exports = function(rsRepository, logger) {
+module.exports = function(rsRepository, moment, logger) {
     return function TrainerEventHandler() {
         logger.info('TrainerEventHandler started up');
 
@@ -45,7 +45,7 @@ module.exports = function(rsRepository, logger) {
         async function trainerArchived(event) {
             var trainer          = await rsRepository.getById(event.id, 'trainer');
             trainer.archived     = true;
-            trainer.archivedDate = new Date.now();
+            trainer.archivedDate = moment().toISOString();
             var sql = `UPDATE "trainer" SET "archived" = 'true', document = '${JSON.stringify(trainer)}' where id = '${event.id}'`;
             return await rsRepository.saveQuery(sql);
         }
@@ -53,7 +53,7 @@ module.exports = function(rsRepository, logger) {
         async function trainerUnArchived(event) {
             var trainer          = await rsRepository.getById(event.id, 'trainer');
             trainer.archived     = false;
-            trainer.archivedDate = new Date.now();
+            trainer.archivedDate = moment().toISOString();
             var sql = `UPDATE "trainer" SET "archived" = 'false', document = '${JSON.stringify(trainer)}' where id = '${event.id}'`;
             return await rsRepository.saveQuery(sql);
         }
@@ -63,7 +63,16 @@ module.exports = function(rsRepository, logger) {
             trainer.clients = event.clients;
             return await rsRepository.save('trainer', trainer, event.id);
         }
-        
+
+        async function clientArchived(event) {
+            var client          = await rsRepository.getById(event.id, 'client');
+            client.archived     = true;
+            client.archivedDate = moment().toISOString();
+            var sql = `UPDATE "client" SET "archived" = 'true', document = '${JSON.stringify(client)}' where id = '${event.id}'`;
+            return await rsRepository.saveQuery(sql);
+        }
+
+
         return {
             handlerName: 'TrainerEventHandler',
             trainerHired,
