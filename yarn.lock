@@ -206,7 +206,7 @@ config@^1.14.0:
 
 "corelogger@git://github.com/reharik/core_logger.git":
   version "0.0.1"
-  resolved "git://github.com/reharik/core_logger.git#6e2eb79d9eebf62d1c034bf60014d5494bda713c"
+  resolved "git://github.com/reharik/core_logger.git#2d758bd2edf074ae7d34939efba1656da29b2631"
   dependencies:
     moment "^2.17.1"
     os "^0.1.1"
@@ -326,7 +326,7 @@ ges-client@0.10.0:
 
 ges-eventsourcing@reharik/ges-eventsourcing.git:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/967c2476534d43a123cc0098b042ced107117c94"
+  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/c49da4cf9f70f3a0ce76330bd6cbcbf53193f79e"
   dependencies:
     JSON "^1.0.0"
     appdomain "git://github.com/reharik/mf_domain.git"
