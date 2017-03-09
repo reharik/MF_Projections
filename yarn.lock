@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@types/long@^3.0.31":
+  version "3.0.31"
+  resolved "https://registry.yarnpkg.com/@types/long/-/long-3.0.31.tgz#08635b0d0d322676940c1a88a7a9cef661c6f34a"
+
+"@types/node@^6.0.47":
+  version "6.0.65"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.65.tgz#c00faa7ffcfc9842b5dd7bf650872562504d5670"
+
 JSON@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/JSON/-/JSON-1.0.0.tgz#8681531c28f8438a075589ff07248246ea960d8c"
@@ -18,14 +26,14 @@ ap@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ap/-/ap-0.2.0.tgz#ae0942600b29912f0d2b14ec60c45e8f330b6110"
 
-"appdomain@git://github.com/reharik/mf_domain.git":
+appdomain@reharik/mf_domain:
   version "1.0.0"
-  resolved "git://github.com/reharik/mf_domain.git#5eed6d675b90528dd6565cb60b4e900a912d0dd4"
+  resolved "https://codeload.github.com/reharik/mf_domain/tar.gz/89c8dcbb1c4b8d0922bf8d73b614cb3de706a8a0"
   dependencies:
     JSON "^1.0.0"
     bluebird "^3.4.1"
-    corelogger "git://github.com/reharik/core_logger.git"
-    dagon "git://github.com/reharik/dagon.git"
+    corelogger reharik/core_logger
+    dagon reharik/dagon
     extend "^3.0.0"
     invariant "^2.1.0"
     moment "^2.17.1"
@@ -46,29 +54,13 @@ ascli@~1:
     colour "~0.7.1"
     optjs "~3.2.2"
 
-asn1@0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.1.11.tgz#559be18376d08a4ec4dbe80877d27818639b2df7"
-
-assert-plus@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-0.1.5.tgz#ee74009413002d84cec7219c6ac811812e723160"
-
 assertion-error@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.0.2.tgz#13ca515d86206da0bac66e834dd397d87581094c"
 
-async@~0.9.0:
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
-
 async@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async/-/async-1.0.0.tgz#f8fc04ca3a13784ade9e1641af98578cfbd647a9"
-
-aws-sign2@~0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.5.0.tgz#c57103f7a17fc037f02d7c2e64b602ea223f7d63"
 
 balanced-match@^0.4.1:
   version "0.4.2"
@@ -83,14 +75,8 @@ bluebird@2.x:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
 
 bluebird@^3.4.1:
-  version "3.4.7"
-  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.4.7.tgz#f72d760be09b7f76d08ed8fae98b289a8d05fab3"
-
-boom@0.4.x:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/boom/-/boom-0.4.2.tgz#7a636e9ded4efcefb19cef4947a3c67dfaee911b"
-  dependencies:
-    hoek "0.9.x"
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
 
 brace-expansion@^1.0.0:
   version "1.1.6"
@@ -111,16 +97,11 @@ buffer@^3.4.2:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-bufferview@~1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/bufferview/-/bufferview-1.0.1.tgz#7afd74a45f937fa422a1d338c08bbfdc76cd725d"
-
-"bytebuffer@~4 >=4.1":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/bytebuffer/-/bytebuffer-4.1.0.tgz#4c58269e052ab1e4b1f7ff364fdfb3ce882906aa"
+bytebuffer@~5:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/bytebuffer/-/bytebuffer-5.0.1.tgz#582eea4b1a873b6d020a48d58df85f0bba6cfddd"
   dependencies:
-    bufferview "~1"
-    long "~2 >=2.3.0"
+    long "~3"
 
 camelcase@^2.0.1:
   version "2.1.1"
@@ -180,12 +161,6 @@ colour@~0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/colour/-/colour-0.7.1.tgz#9cb169917ec5d12c0736d3e8685746df1cadf778"
 
-combined-stream@~0.0.4:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-0.0.7.tgz#0137e657baa5a7541c57ac37ac5fc07d73b4dc1f"
-  dependencies:
-    delayed-stream "0.0.5"
-
 commander@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-0.6.1.tgz#fa68a14f6a945d54dbbe50d8cdb3320e9e3b1a06"
@@ -204,9 +179,9 @@ config@^1.14.0:
   dependencies:
     json5 "0.4.0"
 
-"corelogger@git://github.com/reharik/core_logger.git":
+corelogger@reharik/core_logger:
   version "0.0.1"
-  resolved "git://github.com/reharik/core_logger.git#2d758bd2edf074ae7d34939efba1656da29b2631"
+  resolved "https://codeload.github.com/reharik/core_logger/tar.gz/2d758bd2edf074ae7d34939efba1656da29b2631"
   dependencies:
     moment "^2.17.1"
     os "^0.1.1"
@@ -217,23 +192,13 @@ crypt@~0.0.1:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/crypt/-/crypt-0.0.2.tgz#88d7ff7ec0dfb86f713dc87bbb42d044d3e6c41b"
 
-cryptiles@0.2.x:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-0.2.2.tgz#ed91ff1f17ad13d3748288594f8a48a0d26f325c"
-  dependencies:
-    boom "0.4.x"
-
-ctype@0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/ctype/-/ctype-0.5.3.tgz#82c18c2461f74114ef16c135224ad0b9144ca12f"
-
 cycle@1.0.x:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/cycle/-/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
 
-"dagon@git://github.com/reharik/dagon.git":
+dagon@reharik/dagon:
   version "1.2.0"
-  resolved "git://github.com/reharik/dagon.git#8d0f1fbb230125814d93329ddf6dcefc22481cd2"
+  resolved "https://codeload.github.com/reharik/dagon/tar.gz/db811b45d8f296edd808de82ae8b47f6cb87a590"
   dependencies:
     JSON "^1.0.0"
     fn-args "^2.0.0"
@@ -265,10 +230,6 @@ deep-eql@^0.1.3:
   dependencies:
     type-detect "0.1.1"
 
-delayed-stream@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-0.0.5.tgz#d4b1f43a93e8296dfe02694f4680bc37a313c73f"
-
 diff@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-1.4.0.tgz#7f28d2eb9ee7b15a97efd89ce63dcfdaa3ccbabf"
@@ -276,6 +237,16 @@ diff@1.4.0:
 escape-string-regexp@1.0.2, escape-string-regexp@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.2.tgz#4dbc2fe674e71949caf3fb2695ce7f2dc1d9a8d1"
+
+eventstore-node@^0.0.29:
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/eventstore-node/-/eventstore-node-0.0.29.tgz#6e39592d48be6096ba7fa19ad334cca0846a8df1"
+  dependencies:
+    "@types/long" "^3.0.31"
+    "@types/node" "^6.0.47"
+    long "^3.2"
+    protobufjs "^5.0"
+    uuid "^2.0"
 
 extend@^3.0.0:
   version "3.0.0"
@@ -293,51 +264,34 @@ foreach@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.4.tgz#cc5d0d8ae1d46cc9a555c2682f910977859935df"
 
-forever-agent@~0.5.0:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.5.2.tgz#6d0e09c4921f94a27f63d3b49c5feff1ea4c5130"
-
-form-data@~0.1.0:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-0.1.4.tgz#91abd788aba9702b1aabfa8bc01031a2ac9e3b12"
-  dependencies:
-    async "~0.9.0"
-    combined-stream "~0.0.4"
-    mime "~1.2.11"
-
 formatio@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/formatio/-/formatio-1.1.1.tgz#5ed3ccd636551097383465d996199100e86161e9"
   dependencies:
     samsam "~1.1"
 
+fs.realpath@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
+
 generic-pool@2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-2.4.2.tgz#886bc5bf0beb7db96e81bcbba078818de5a62683"
 
-ges-client@0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/ges-client/-/ges-client-0.10.0.tgz#eeb4cbdeadbd93e63c409f8b6dc7176d2bd93d36"
-  dependencies:
-    is "^2.0.1"
-    node-uuid "^1.4.1"
-    protobufjs "^4.0.0"
-    request "2.34.x"
-
-ges-eventsourcing@reharik/ges-eventsourcing.git:
+ges-eventsourcing@reharik/ges-eventsourcing#eventstore_node:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/c49da4cf9f70f3a0ce76330bd6cbcbf53193f79e"
+  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/a71f021044ec4f98b0acc5267c36adcafbdf77fd"
   dependencies:
     JSON "^1.0.0"
-    appdomain "git://github.com/reharik/mf_domain.git"
+    appdomain reharik/mf_domain
     bluebird "^3.4.1"
     buffer "^3.4.2"
     co "^4.6.0"
     co-queue "^2.0.0"
-    corelogger "git://github.com/reharik/core_logger.git"
-    dagon "git://github.com/reharik/dagon.git"
+    corelogger reharik/core_logger
+    dagon reharik/dagon
+    eventstore-node "^0.0.29"
     extend "^3.0.0"
-    ges-client "0.10.0"
     invariant "^2.1.0"
     is-object-empty "^1.0.0"
     pg "^4.4.3"
@@ -355,13 +309,14 @@ glob@3.2.11:
     inherits "2"
     minimatch "0.3"
 
-glob@^5.0.10:
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-5.0.15.tgz#1bc936b9e02f4a603fcc222ecf7633d30b8b93b1"
+glob@^7.0.5:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
+    fs.realpath "^1.0.0"
     inflight "^1.0.4"
     inherits "2"
-    minimatch "2 || 3"
+    minimatch "^3.0.2"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
@@ -374,27 +329,6 @@ has-ansi@^2.0.0:
   resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
   dependencies:
     ansi-regex "^2.0.0"
-
-hawk@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/hawk/-/hawk-1.0.0.tgz#b90bb169807285411da7ffcb8dd2598502d3b52d"
-  dependencies:
-    boom "0.4.x"
-    cryptiles "0.2.x"
-    hoek "0.9.x"
-    sntp "0.2.x"
-
-hoek@0.9.x:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/hoek/-/hoek-0.9.1.tgz#3d322462badf07716ea7eb85baf88079cddce505"
-
-http-signature@~0.10.0:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-0.10.1.tgz#4fbdac132559aa8323121e540779c0a012b27e66"
-  dependencies:
-    asn1 "0.1.11"
-    assert-plus "^0.1.5"
-    ctype "0.5.3"
 
 ieee754@^1.1.4:
   version "1.1.8"
@@ -439,10 +373,6 @@ is-object-empty@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-object-empty/-/is-object-empty-1.0.0.tgz#463b9064761e60a98d31696424d1a67159014bbc"
 
-is@^2.0.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/is/-/is-2.2.1.tgz#5b0557a3dc68089d978ecd1184cc8fc529837a04"
-
 isarray@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
@@ -470,10 +400,6 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-json-stringify-safe@~5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
-
 json3@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.0.tgz#0e9e7f6c5d270b758929af4d6fefdc84bd66e259"
@@ -492,9 +418,9 @@ lolex@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/lolex/-/lolex-1.3.2.tgz#7c3da62ffcb30f0f5a80a2566ca24e45d8a01f31"
 
-"long@~2 >=2.3.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/long/-/long-2.4.0.tgz#9fa180bb1d9500cdc29c4156766a1995e1f4524f"
+long@^3.2, long@~3:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
 
 loose-envify@^1.0.0:
   version "1.3.1"
@@ -514,10 +440,6 @@ md5@^2.1.0:
     crypt "~0.0.1"
     is-buffer "~1.1.1"
 
-mime@~1.2.11, mime@~1.2.9:
-  version "1.2.11"
-  resolved "https://registry.yarnpkg.com/mime/-/mime-1.2.11.tgz#58203eed86e3a5ef17aed2b7d9ebd47f0a60dd10"
-
 minimatch@0.3:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-0.3.0.tgz#275d8edaac4f1bb3326472089e7949c8394699dd"
@@ -525,7 +447,7 @@ minimatch@0.3:
     lru-cache "2"
     sigmund "~1.0.0"
 
-"minimatch@2 || 3":
+minimatch@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.3.tgz#2a4e4090b96b2db06a9d7df01055a62a77c9b774"
   dependencies:
@@ -581,17 +503,9 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-node-uuid@^1.4.1, node-uuid@~1.4.0:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.7.tgz#6da5a17668c4b3dd59623bda11cf7fa4c1f60a6f"
-
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
-
-oauth-sign@~0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.3.0.tgz#cb540f93bb2b22a7d5941691a288d60e8ea9386e"
 
 object-keys@0.5.0:
   version "0.5.0"
@@ -686,22 +600,14 @@ postgres-interval@~1.0.0:
   dependencies:
     xtend "^4.0.0"
 
-protobufjs@^4.0.0:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-4.1.3.tgz#8e36d1b0226cbb68d647e4b44c2a144f37f2779e"
+protobufjs@^5.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-5.0.2.tgz#59748d7dcf03d2db22c13da9feb024e16ab80c91"
   dependencies:
     ascli "~1"
-    bytebuffer "~4 >=4.1"
-    glob "^5.0.10"
+    bytebuffer "~5"
+    glob "^7.0.5"
     yargs "^3.10.0"
-
-punycode@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
-
-qs@~0.6.0:
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-0.6.6.tgz#6e015098ff51968b8a3c819001d5f2c89bc4b107"
 
 ramda-fantasy@^0.4.1:
   version "0.4.1"
@@ -715,9 +621,9 @@ ramda-fantasy@^0.6.1:
   dependencies:
     ramda ">=0.15.0"
 
-ramda@>=0.15.0, ramda@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
+ramda@>=0.15.0, ramda@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
 
 "ramda@>=0.15.0 <0.18.0":
   version "0.17.1"
@@ -727,27 +633,9 @@ ramda@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.18.0.tgz#c6e3c5d4b9ab1f7906727fdeeb039152a85d4db3"
 
-ramda@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
-
-request@2.34.x:
-  version "2.34.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.34.0.tgz#b5d8b9526add4a2d4629f4d417124573996445ae"
-  dependencies:
-    forever-agent "~0.5.0"
-    json-stringify-safe "~5.0.0"
-    mime "~1.2.9"
-    node-uuid "~1.4.0"
-    qs "~0.6.0"
-  optionalDependencies:
-    aws-sign2 "~0.5.0"
-    form-data "~0.1.0"
-    hawk "~1.0.0"
-    http-signature "~0.10.0"
-    oauth-sign "~0.3.0"
-    tough-cookie ">=0.12.0"
-    tunnel-agent "~0.3.0"
+ramda@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
 
 requirejs@^2.1.20:
   version "2.3.3"
@@ -777,12 +665,6 @@ sinon@^1.15.4:
     lolex "1.3.2"
     samsam "1.1.2"
     util ">=0.10.3 <1"
-
-sntp@0.2.x:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/sntp/-/sntp-0.2.4.tgz#fb885f18b0f3aad189f824862536bceeec750900"
-  dependencies:
-    hoek "0.9.x"
 
 split@~0.3:
   version "0.3.3"
@@ -824,23 +706,14 @@ to-iso-string@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/to-iso-string/-/to-iso-string-0.0.2.tgz#4dc19e664dfccbe25bd8db508b00c6da158255d1"
 
-tough-cookie@>=0.12.0:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.2.tgz#f081f76e4c85720e6c37a5faced737150d84072a"
-  dependencies:
-    punycode "^1.4.1"
-
 treis@^2.3.16:
-  version "2.3.16"
-  resolved "https://registry.yarnpkg.com/treis/-/treis-2.3.16.tgz#39e775d5daa3918847fe81e777d32dbdf7ff988b"
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/treis/-/treis-2.5.0.tgz#cea7e10dbc834a6ad704119831e32dd4cf417093"
   dependencies:
     chalk "^1.1.1"
     ramda "^0.18.0"
+    strip-ansi "^3.0.1"
     util-inspect "^0.1.8"
-
-tunnel-agent@~0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.3.0.tgz#ad681b68f5321ad2827c4cfb1b7d5df2cfe942ee"
 
 type-detect@0.1.1:
   version "0.1.1"
@@ -868,7 +741,7 @@ util-inspect@^0.1.8:
   dependencies:
     inherits "2.0.1"
 
-uuid@^2.0.1:
+uuid@^2.0, uuid@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
