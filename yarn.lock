@@ -26,19 +26,6 @@ ap@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ap/-/ap-0.2.0.tgz#ae0942600b29912f0d2b14ec60c45e8f330b6110"
 
-appdomain@reharik/mf_domain:
-  version "1.0.0"
-  resolved "https://codeload.github.com/reharik/mf_domain/tar.gz/f49798f9df67036e8866c80d730e980eb43eb79d"
-  dependencies:
-    JSON "^1.0.0"
-    bluebird "^3.4.1"
-    corelogger reharik/core_logger
-    dagon reharik/dagon
-    extend "^3.0.0"
-    invariant "^2.1.0"
-    moment "^2.17.1"
-    uuid "^2.0.1"
-
 array-map@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/array-map/-/array-map-0.0.0.tgz#88a2bab73d1cf7bcd5c1b118a003f66f665fa662"
@@ -198,7 +185,7 @@ cycle@1.0.x:
 
 dagon@reharik/dagon:
   version "1.2.0"
-  resolved "https://codeload.github.com/reharik/dagon/tar.gz/db811b45d8f296edd808de82ae8b47f6cb87a590"
+  resolved "https://codeload.github.com/reharik/dagon/tar.gz/26c797653b30a64ec808d037238574cd6a32c2cf"
   dependencies:
     JSON "^1.0.0"
     fn-args "^2.0.0"
@@ -280,10 +267,9 @@ generic-pool@2.4.2:
 
 ges-eventsourcing@reharik/ges-eventsourcing#eventstore_node:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/98f54188de23e0edf31a5665e21125d1a9b7a882"
+  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/4c6adf2bbc8c6fd4720935d4ec7c2b320fc592f2"
   dependencies:
     JSON "^1.0.0"
-    appdomain reharik/mf_domain
     bluebird "^3.4.1"
     buffer "^3.4.2"
     co "^4.6.0"
@@ -621,9 +607,9 @@ ramda-fantasy@^0.6.1:
   dependencies:
     ramda ">=0.15.0"
 
-ramda@>=0.15.0, ramda@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
+ramda@>=0.15.0, ramda@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
 
 "ramda@>=0.15.0 <0.18.0":
   version "0.17.1"
@@ -633,9 +619,9 @@ ramda@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.18.0.tgz#c6e3c5d4b9ab1f7906727fdeeb039152a85d4db3"
 
-ramda@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
+ramda@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
 
 requirejs@^2.1.20:
   version "2.3.3"
