@@ -168,7 +168,7 @@ config@^1.14.0:
 
 corelogger@reharik/core_logger:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/core_logger/tar.gz/2d758bd2edf074ae7d34939efba1656da29b2631"
+  resolved "https://codeload.github.com/reharik/core_logger/tar.gz/a369c51b4479532a9432950da51ffefee9a91ef4"
   dependencies:
     moment "^2.17.1"
     os "^0.1.1"
@@ -195,17 +195,11 @@ dagon@reharik/dagon:
     ramda "^0.23.0"
     winston "^2.3.1"
 
-debug@2.2.0:
+debug@2.2.0, debug@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
     ms "0.7.1"
-
-debug@^2.2.0:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
-  dependencies:
-    ms "0.7.2"
 
 decamelize@^1.1.1:
   version "1.2.0"
@@ -267,7 +261,7 @@ generic-pool@2.4.2:
 
 ges-eventsourcing@reharik/ges-eventsourcing#eventstore_node:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/c7101caf5c8640a0630c4b69e98398c434db9611"
+  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/0bd6a98c358d85b950641e4a7a91be59e544ff28"
   dependencies:
     JSON "^1.0.0"
     bluebird "^3.4.1"
@@ -331,11 +325,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
-
-inherits@2.0.1:
+inherits@2, inherits@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
@@ -488,10 +478,6 @@ moment@^2.10.6, moment@^2.17.1:
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
-
-ms@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
 number-is-nan@^1.0.0:
   version "1.0.1"
