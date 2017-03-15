@@ -40,28 +40,8 @@ module.exports = function(rsRepository, logger) {
             return await rsRepository.saveQuery(sql);
         }
 
-        async function appointmentTypeChanged(event) {
-            logger.info('handling appointmentTypeChanged event');
-            return appointmentUpdated(event);
-        }
-
-        async function notesForAppointmentUpdated(event) {
-            logger.info('handling notesForAppointmentUpdated event');
-            return appointmentUpdated(event);
-        }
-
-        async function trainerChangedForAppointment(event) {
-            logger.info('handling trainerChangedForAppointment event');
-            return appointmentUpdated(event);
-        }
-
-        async function clientsChangedForAppointment(event) {
-            logger.info('handling clientsChangedForAppointment event');
-            return appointmentUpdated(event);
-        }
-
-        async function timeChangedForAppointment(event) {
-            logger.info('handling timeChangedForAppointment event');
+        async function appointmentRescheduled(event) {
+            logger.info('handling appointmentRescheduled event');
             return appointmentUpdated(event);
         }
 
@@ -77,13 +57,10 @@ module.exports = function(rsRepository, logger) {
         return {
             handlerName: 'AppointmentEventHandler',
             appointmentScheduled,
-            timeChangedForAppointment,
-            clientsChangedForAppointment,
-            trainerChangedForAppointment,
-            appointmentTypeChanged,
             appointmentMovedFromDifferentDay,
             appointmentCanceled,
-            notesForAppointmentUpdated
+            appointmentRescheduled,
+            appointmentUpdated
         }
     };
 };
