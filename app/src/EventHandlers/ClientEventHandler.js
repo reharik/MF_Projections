@@ -16,7 +16,9 @@ module.exports = function(rsRepository, moment, logger) {
                 birthate   : event.birthDate,
                 contact    : event.contact
             };
-
+console.log(`==========client=========`);
+console.log(client);
+console.log(`==========END client=========`);
             return await rsRepository.save('client', client);
         }
 

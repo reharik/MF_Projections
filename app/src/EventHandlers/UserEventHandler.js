@@ -8,6 +8,9 @@ module.exports = function(rsRepository, logger) {
         logger.info('UserEventHandler started up');
 
         async function trainerHired(event) {
+            console.log(`==========event=========`);
+            console.log(event);
+            console.log(`==========END event=========`);
             var user = {
                 id      : event.id,
                 userName: event.contact.email,

@@ -6,7 +6,7 @@
   "homepage": "https://github.com/reharik/mf_projections#readme",
   "main": "index.js",
   "scripts": {
-    "start": "node --harmony-async-await app/index.js",
+    "start": "node app/index.js",
     "test": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/unitTests/*.js",
     "intTest": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/integrationTests/*.js"
   },
@@ -36,7 +36,7 @@
     "corelogger": "reharik/core_logger",
     "dagon": "reharik/dagon",
     "extend": "^3.0.0",
-    "ges-eventsourcing": "reharik/ges-eventsourcing#02",
+    "ges-eventsourcing": "reharik/ges-eventsourcing#05",
     "moment": "^2.17.1",
     "pg-bluebird": "^1.0.8",
     "ramda": "^0.18.0",

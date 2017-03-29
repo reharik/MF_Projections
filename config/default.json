@@ -2,7 +2,7 @@
   "configs": {
     "children": {
       "eventstore": {
-        "host": "eventstore",
+        "host": "localhost",
         "systemUsers": {
           "admin": "admin"
         },
@@ -12,7 +12,7 @@
         "config" :{
           "user": "methodfitness",
           "database": "methodfitness",
-          "host"     : "postgres",
+          "host"     : "localhost",
           "password": "password",
           "port": "5432",
           "max": "10",
