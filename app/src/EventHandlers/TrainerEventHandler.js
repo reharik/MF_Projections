@@ -15,7 +15,9 @@ module.exports = function(rsRepository, moment, logger) {
                 color        : event.color,
                 clients     : event.clients
             };
-
+console.log(`==========trainer=========`);
+console.log(trainer);
+console.log(`==========END trainer=========`);
             return await rsRepository.save('trainer', trainer);
         }
 
