@@ -13,12 +13,10 @@ module.exports = function(rsRepository, moment, logger) {
                 source      : event.source,
                 sourceNotes : event.sourceNotes,
                 startDate   : event.startDate,
-                birthate   : event.birthDate,
-                contact    : event.contact
+                birthDate   : event.birthDate,
+                contact    : event.contact,
+                inventory  : {}
             };
-console.log(`==========client=========`);
-console.log(client);
-console.log(`==========END client=========`);
             return await rsRepository.save('client', client);
         }
 
@@ -68,6 +66,12 @@ console.log(`==========END client=========`);
             return await rsRepository.saveQuery(sql);
         }
 
+        async function sessionCreated(event) {
+          var client          = await rsRepository.getById(event.clientId, 'client');
+          client.inventory[event.sessionType] ++;
+          return await rsRepository.save('client', client, event.clientId);
+        }
+
         return {
             handlerName: 'ClientEventHandler',
             clientAdded,
@@ -76,7 +80,8 @@ console.log(`==========END client=========`);
             clientContactUpdated,
             clientAddressUpdated,
             clientInfoUpdated,
-            clientSourceUpdated
+            clientSourceUpdated,
+          sessionCreated
         }
     };
 };
