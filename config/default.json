@@ -4,9 +4,9 @@
       "eventstore": {
         "host": "localhost",
         "systemUsers": {
-          "admin": "admin"
-        },
-        "adminPassword": "changeit"
+          "admin": "admin",
+          "adminPassword": "changeit"
+        }
       },
       "postgres": {
         "config" :{
