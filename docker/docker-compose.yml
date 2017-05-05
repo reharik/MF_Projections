@@ -1,7 +1,9 @@
 version: "2"
 services:
   projections:
-    image: mf_projections
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
     volumes:
       - ./../app:/home/current/app
     command: npm start #top -b #
